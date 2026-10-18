@@ -85,10 +85,14 @@ public class Worker {
         Worker worker = new Worker();
 
         worker.setId(Validator.getString("Enter id: ", "Invalid!", "[Ww]\\d+").toUpperCase());
-        worker.setName(Validator.getString("Enter Name: ", "Invalid!", "[A-Za-z\\s]+"));
+        worker.setName(Validator.getString(
+        "Enter Name: ",
+        "Tên công nhân không được để trống hoặc không hợp lệ!",
+        "[A-Za-z\\s]+"
+));
         worker.setAge(Validator.getInt("Enter age: ", "age >= 18 and <= 50 !", "Invalid!", 18, 50));
         worker.setSalary(Validator.getDouble("Enter Salary: ", "salary must be > 0", "Invalid!", Double.MIN_VALUE, Double.MAX_VALUE));
-        worker.setWorkLocation(Validator.getString("Enter work location: ", "Invalid!", "[A-Za-z0-9\\s]+"));
+        worker.setWorkLocation(Validator.getString("Enter work location: ", "Invalid!", "[A-Za-z\\s]+"));
 
         return worker;
     }

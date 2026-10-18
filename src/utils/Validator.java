@@ -50,17 +50,21 @@ public class Validator {
         } while (true);
     }
     
+   
     //Hàm lấy chuỗi hợp lệ theo regex
-    public static String getString(String messageInfo, String messageError, final String REGEX){
-        do {            
+    public static String getString(String messageInfo, String messageError, final String REGEX) {
+        do {
             System.out.print(messageInfo);
             String str = SCANNER.nextLine();
-            if(str.matches(REGEX)){
-                return str;
+
+            if (str != null && !str.trim().isEmpty() && str.trim().matches(REGEX)) {
+                return str.trim();
             }
+
             System.out.println(messageError);
         } while (true);
     }
+
     
     //Hàm lấy ngày tháng hợp lệ nằm trong khoảng min-max và đúng định dạng
     public static Date getDate(String messageInfo,String messsageErrorOutOfRange,
